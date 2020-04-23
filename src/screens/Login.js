@@ -1,10 +1,16 @@
 import React from 'react';
-import { View, Text, Button, TextInput, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, Text, Button, TextInput, ActivityIndicator, StyleSheet, AsyncStorage } from 'react-native';
 
 export default class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = { accountId: '', password: '', loading: false, failed: false };
+  }
+
+  async componentDidMount() {
+    if (await AsyncStorage.getItem('api_token')) {
+      this.props.navigation.navigate('main');
+    }
   }
 
   onSubmit() {
@@ -16,9 +22,10 @@ export default class Login extends React.Component {
         body: JSON.stringify({email: this.state.accountId, password: this.state.password})
       }).then((response) => response.json())
         .then((jsonData) => {
-          this.setState({ loading: false })
-          if (jsonData['token']) {
-            this.props.navigation.navigate('main')
+          this.setState({ loading: false });
+          if (jsonData.token) {
+            AsyncStorage.setItem('api_token', jsonData.token);
+            this.props.navigation.navigate('main');
           }
           else {
             this.setState({ failed: true })

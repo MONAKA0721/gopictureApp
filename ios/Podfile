@@ -77,6 +77,8 @@ target 'gopicture' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+  pod 'RNImageCropPicker', :path => '../node_modules/react-native-image-crop-picker'
+
   target 'gopictureTests' do
     inherit! :complete
     # Pods for testing

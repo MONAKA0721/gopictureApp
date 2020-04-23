@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import ImagePicker from 'react-native-image-crop-picker';
 
 import Login from './src/screens/Login'
 import Main from './src/screens/Main'
