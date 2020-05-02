@@ -23,9 +23,7 @@ export default class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      taskName: '',
-      tasks: [],
-      loading: '',
+      loading: false,
       apiToken: '',
       albums: [],
       formDisplay: false,
@@ -107,13 +105,17 @@ export default class Main extends React.Component {
           data={this.state.albums}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({item}) => (
-            <ImageBackground
-              style={styles.image}
-              imageStyle={{ borderRadius: 15, opacity: 0.8 }}
-              source={{uri: `https://storage.googleapis.com/go-pictures.appspot.com/${item.Hash}/${item.TopPicName}`}}
+            <TouchableOpacity
+              onPress={() => this.moveToShow()}
             >
-              <Text style={styles.albumName}>{item.Name}</Text>
-            </ImageBackground>
+              <ImageBackground
+                style={styles.image}
+                imageStyle={{ borderRadius: 15, opacity: 0.8 }}
+                source={{uri: `https://storage.googleapis.com/go-pictures.appspot.com/${item.Hash}/${item.TopPicName}`}}
+              >
+                <Text style={styles.albumName}>{item.Name}</Text>
+              </ImageBackground>
+            </TouchableOpacity>
           )}
         />
       )
@@ -169,6 +171,10 @@ export default class Main extends React.Component {
         </View>
       )
     }
+  }
+
+  moveToShow(){
+    this.props.navigation.navigate('show');
   }
 
   render() {

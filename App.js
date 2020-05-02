@@ -5,12 +5,14 @@ import ImagePicker from 'react-native-image-crop-picker';
 
 import Login from './src/screens/Login'
 import Main from './src/screens/Main'
+import Show from './src/screens/Show'
 
 export default function App() {
   const MainNavigator = createAppContainer(
     createSwitchNavigator({
       login: { screen: Login },
-      main: { screen: Main }
+      main: { screen: Main },
+      show: { screen: Show}
     })
   )
 
