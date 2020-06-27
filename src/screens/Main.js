@@ -73,7 +73,7 @@ export default class Main extends React.Component {
       );
     }else{
       data.append("album", this.state.albumName)
-      fetch(`http://gopicture-docker-stg.herokuapp.com/api/upload`, {
+      fetch(`https://gopicture-docker-stg.herokuapp.com/api/upload`, {
         method: "post",
         headers: {
           Authorization: 'bearer ' + this.state.apiToken,
