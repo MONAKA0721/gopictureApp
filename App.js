@@ -7,8 +7,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 // import Login from './src/screens/Login'
-// import Main from './src/screens/Main'
-// import Show from './src/screens/Show'
+import IndexScreen from './src/screens/Index'
+import ShowScreen from './src/screens/Show'
 import LoginContainer from './src/screens/Login'
 
 const AuthContext = React.createContext();
@@ -268,9 +268,12 @@ export default function App() {
             }}
           />
         ) : (
-          // User is signed in
-          <Stack.Screen name="Home" component={HomeScreen} />
+          <>
+            <Stack.Screen name="Index" component={IndexScreen} />
+            <Stack.Screen name="Show" component={ShowScreen} />
+          </>
         )}
+
       </Stack.Navigator>
       // <Stack.Navigator>
       //   <Stack.Screen name="Home" component={HomeScreen} />

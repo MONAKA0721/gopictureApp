@@ -124,7 +124,7 @@ export default class Main extends React.Component {
 
   logout() {
     AsyncStorage.removeItem('api_token');
-    this.props.navigation.navigate('login')
+    dispatch({ type: 'SIGN_OUT' })
   }
 
   renderForm(){
@@ -174,7 +174,7 @@ export default class Main extends React.Component {
   }
 
   moveToShow(){
-    this.props.navigation.navigate('show');
+    this.props.navigation.navigate('Show');
   }
 
   render() {
@@ -229,7 +229,6 @@ const styles = StyleSheet.create({
     marginBottom:20,
     width: 350
   },
-  form: { margin: 40 },
   textInput: {
     width: 330,
     paddingLeft: 20,
@@ -249,7 +248,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    paddingTop: 50
+    alignItems: 'center',
+    paddingTop: 10
   },
   albumName: {
     fontSize: 40,
