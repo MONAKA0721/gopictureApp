@@ -10,6 +10,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import IndexScreen from './src/screens/Index'
 import ShowScreen from './src/screens/Show'
 import LoginContainer from './src/screens/Login'
+import PictureScreen from './src/screens/Picture'
 
 const AuthContext = React.createContext();
 
@@ -271,6 +272,7 @@ export default function App() {
           <>
             <Stack.Screen name="Index" component={IndexScreen} />
             <Stack.Screen name="Show" component={ShowScreen} />
+            <Stack.Screen name="Picture" component={PictureScreen} />
           </>
         )}
 

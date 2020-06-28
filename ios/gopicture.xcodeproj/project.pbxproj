@@ -20,6 +20,7 @@
 		BFE61E26DDDC87A3B3995D5E /* libPods-gopicture-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7251F4F23D90065B080797 /* libPods-gopicture-tvOSTests.a */; };
 		CC3D7210CB3AC3DBB6761576 /* libPods-gopicture-gopictureTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E42C1A3DEA9473E7835C5AB5 /* libPods-gopicture-gopictureTests.a */; };
 		EA0E2EB21A78E23071C8F70E /* libPods-gopicture.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2749F765CA449DFC550247DD /* libPods-gopicture.a */; };
+		8801E995A17542D49DFCC699 /* libRNPhotoView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3814CB67BA4143D4B801B0CE /* libRNPhotoView.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		E52EC983F4F8BBFF770006BE /* Pods-gopicture-gopictureTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gopicture-gopictureTests.debug.xcconfig"; path = "Target Support Files/Pods-gopicture-gopictureTests/Pods-gopicture-gopictureTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		40129BEDD3024C86989DA0EB /* RNPhotoView.xcodeproj */ = {isa = PBXFileReference; name = "RNPhotoView.xcodeproj"; path = "../node_modules/react-native-photo-view/ios/RNPhotoView.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		3814CB67BA4143D4B801B0CE /* libRNPhotoView.a */ = {isa = PBXFileReference; name = "libRNPhotoView.a"; path = "libRNPhotoView.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA0E2EB21A78E23071C8F70E /* libPods-gopicture.a in Frameworks */,
+				8801E995A17542D49DFCC699 /* libRNPhotoView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +172,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				40129BEDD3024C86989DA0EB /* RNPhotoView.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -642,6 +647,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gopicture.app/gopicture";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
+				);
 			};
 			name = Debug;
 		};
@@ -662,6 +675,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gopicture.app/gopicture";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
+				);
 			};
 			name = Release;
 		};
@@ -689,6 +710,10 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
+				);
 			};
 			name = Debug;
 		};
@@ -710,6 +735,10 @@
 				PRODUCT_NAME = gopicture;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
+				);
 			};
 			name = Release;
 		};
@@ -738,6 +767,14 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
+				);
 			};
 			name = Debug;
 		};
@@ -766,6 +803,14 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
+				);
 			};
 			name = Release;
 		};
@@ -793,6 +838,14 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gopicture-tvOS.app/gopicture-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
+				);
 			};
 			name = Debug;
 		};
@@ -820,6 +873,14 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gopicture-tvOS.app/gopicture-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
+				);
 			};
 			name = Release;
 		};

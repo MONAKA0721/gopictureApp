@@ -2,7 +2,9 @@ import React from 'react';
 import {
   FlatList,
   Image,
-  View, Text, Button, TextInput, ActivityIndicator, StyleSheet, AsyncStorage,
+  View, Text,
+  TouchableOpacity,
+  Button, TextInput, ActivityIndicator, StyleSheet, AsyncStorage,
   Dimensions} from 'react-native';
 
 const ITEM_WIDTH = Dimensions.get('window').width;
@@ -48,10 +50,13 @@ export default class Login extends React.Component {
 
           renderItem={({item}) => (
             <View>
-             <Image
-              source={{ uri: 'https://source.unsplash.com/random' }}
-              style={styles.imageStyle}
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('Picture')}>
+              <Image
+                source={{ uri: 'https://source.unsplash.com/random' }}
+                style={styles.imageStyle}
               />
+            </TouchableOpacity>
             </View>
           )}
         />
@@ -69,6 +74,5 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   container: {
-    paddingTop: 40
   }
 });
