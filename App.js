@@ -1,61 +1,16 @@
 import * as React from 'react';
-import {
-  ActivityIndicator,
-  Button, Text, TextInput, StyleSheet, View } from 'react-native';
-import { Provider, connect } from 'react-redux';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-community/async-storage';
 
-// import Login from './src/screens/Login'
-import { IndexScreen, AuthContext } from './src/screens/Index'
-import ShowScreen from './src/screens/Show'
-import LoginContainer from './src/screens/Login'
-import PictureScreen from './src/screens/Picture'
-
-function SplashScreen() {
-  return (
-    <View>
-      <Text>Loading...</Text>
-    </View>
-  );
-}
-
-function HomeScreen() {
-  const { signOut } = React.useContext(AuthContext);
-
-  return (
-    <View>
-      <Text>Signed in!</Text>
-      <Button title="Sign out" onPress={signOut} />
-    </View>
-  );
-}
+import SignInScreen from './src/screens/Signin';
+import { IndexScreen, AuthContext } from './src/screens/Index';
+import ShowScreen from './src/screens/Show';
+import PictureScreen from './src/screens/Picture';
+import SplashScreen from './src/screens/Splash';
 
 const Stack = createStackNavigator();
-
-function SignInScreen() {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-
-  const { signIn, state } = React.useContext(AuthContext);
-  return (
-    <View>
-      <TextInput
-        placeholder="メールアドレス"
-        value={email}
-        onChangeText={setEmail}
-      />
-      <TextInput
-        placeholder='パスワード'
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-      />
-      <Button title="ログイン" onPress={() => signIn({ email, password })} />
-    </View>
-  );
-}
 
 function reducer(prevState, action){
   switch (action.type) {
@@ -71,6 +26,7 @@ function reducer(prevState, action){
         isSignout: false,
         userToken: action.token,
         isLoading: false,
+        failed: false,
       };
     case 'SIGN_OUT':
       return {
@@ -98,38 +54,6 @@ function reducer(prevState, action){
 }
 
 export default function App() {
-
-  function ProfileScreen({ navigation }) {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Button
-          title="Go to Notifications"
-          onPress={() => navigation.navigate('Notifications')}
-        />
-        <Button title="Go back" onPress={() => navigation.goBack()} />
-      </View>
-    );
-  }
-
-  function NotificationsScreen({ navigation }) {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Button
-          title="Go to Settings"
-          onPress={() => navigation.navigate('Settings')}
-        />
-        <Button title="Go back" onPress={() => navigation.goBack()} />
-      </View>
-    );
-  }
-
-  function SettingsScreen({ navigation }) {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Button title="Go back" onPress={() => navigation.goBack()} />
-      </View>
-    );
-  }
 
   const [state, dispatch] = React.useReducer(reducer,
     {
@@ -244,12 +168,3 @@ export default function App() {
     </AuthContext.Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
