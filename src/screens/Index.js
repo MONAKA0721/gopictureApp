@@ -2,9 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import {
   ActivityIndicator,
   Alert,
-  Animated,
   Button,
-  Dimensions,
   FlatList,
   Image,
   ImageBackground,
@@ -21,7 +19,7 @@ let data = new FormData();
 
 export const AuthContext = React.createContext(null);
 
-export function IndexScreen(){
+export function IndexScreen({ navigation }){
   const [isLoading, setIsLoading] = useState(false);
   const [apiToken, setApiToken] = useState('');
   const [albums, setAlbums] = useState([]);
@@ -100,7 +98,7 @@ export function IndexScreen(){
   const { signOut } = useContext(AuthContext);
 
   function moveToShow(){
-    this.props.navigation.navigate('Show');
+    navigation.navigate("Show");
   }
 
   function Albums(){

@@ -1,15 +1,20 @@
 import React from 'react';
 import {
+  Button,
+  Dimensions,
   FlatList,
   Image,
-  View, Text,
+  StyleSheet,
+  Text,
+  TextInput,
   TouchableOpacity,
-  Button, TextInput, ActivityIndicator, StyleSheet, AsyncStorage,
-  Dimensions} from 'react-native';
+  View
+} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const ITEM_WIDTH = Dimensions.get('window').width;
 
-export default class Login extends React.Component {
+export default class Show extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
