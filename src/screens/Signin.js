@@ -9,13 +9,15 @@ import {
 import { AuthContext } from './Index';
 
 export default function SignInScreen() {
-  const [email, setEmail] = useState('');
+  const { signIn, state } = useContext(AuthContext);
+  const [email, setEmail] = useState(state.email);
   const [password, setPassword] = useState('');
 
-  const { signIn, state } = useContext(AuthContext);
   return (
     <View style={styles.container}>
-      {state.failed && <Text style={{color:'red'}}>ログインに失敗しました。</Text>}
+      {state.failed && <Text style={{color:'red'}}>ログインに失敗しました</Text>}
+      {state.invalid_email && <Text style={{color:'red'}}>メールアドレスを入力してください</Text>}
+      {state.invalid_pass && <Text style={{color:'red'}}>パスワードを入力してください</Text>}
       <TextInput
         style={styles.textInput}
         placeholder="メールアドレス"

@@ -28,6 +28,8 @@ function reducer(prevState, action){
         userToken: action.token,
         isLoading: false,
         failed: false,
+        invalid_email: false,
+        invalid_pass: false,
       };
     case 'SIGN_OUT':
       return {
@@ -50,7 +52,34 @@ function reducer(prevState, action){
         ...prevState,
         failed: true,
         isLoading: false,
-      }
+        invalid_email: false,
+        invalid_pass: false,
+      };
+    case 'VALID_EMAIL':
+      return {
+        ...prevState,
+        invalid_email: false,
+      };
+    case 'INVALID_EMAIL':
+      return {
+        ...prevState,
+        invalid_email: true,
+      };
+    case 'VALID_PASS':
+      return {
+        ...prevState,
+        invalid_pass: false,
+      };
+    case 'INVALID_PASS':
+      return {
+        ...prevState,
+        invalid_pass: true,
+      };
+    case 'SET_EMAIL':
+      return {
+        ...prevState,
+        email: action.email,
+      };
   }
 }
 
@@ -62,6 +91,9 @@ export default function App() {
       isSignout: false,
       userToken: null,
       failed: false,
+      invalid_email: false,
+      invalid_pass: false,
+      email: '',
     }
   );
 
@@ -88,6 +120,20 @@ export default function App() {
 
   const authContext = {
     signIn: async data => {
+      if ( data.email == '' ){
+        dispatch({ type: 'SET_EMAIL', email: data.email });
+        dispatch({ type: 'INVALID_EMAIL' });
+        if ( data.password == '' ){
+          dispatch({ type: 'INVALID_PASS' });
+        }
+        return 0;
+      }
+      dispatch({ type: 'SET_EMAIL', email: data.email });
+      dispatch({ type: 'VALID_EMAIL' });
+      if ( data.password == '' ){
+        return dispatch({ type: 'INVALID_PASS' });
+      }
+      dispatch({ type: 'VALID_PASS' });
       dispatch({ type: 'SET_LOADING' });
       fetch(`https://gopicture-docker-stg.herokuapp.com/api/login`,{
         method:'POST',
