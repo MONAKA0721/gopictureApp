@@ -5,7 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-community/async-storage';
 
 import SignInScreen from './src/screens/Signin';
-import { IndexScreen, AuthContext } from './src/screens/Index';
+import Home from './src/screens/Home';
+import { AuthContext } from './src/screens/Index';
 import ShowScreen from './src/screens/Show';
 import PictureScreen from './src/screens/Picture';
 import SplashScreen from './src/screens/Splash';
@@ -150,7 +151,7 @@ export default function App() {
           />
         ) : (
           <>
-            <Stack.Screen name="Index" component={IndexScreen} />
+            <Stack.Screen name="Memopic" component={Home} />
             <Stack.Screen name="Show" component={ShowScreen} />
             <Stack.Screen name="Picture" component={PictureScreen} />
           </>

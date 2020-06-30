@@ -95,7 +95,6 @@ export function IndexScreen({ navigation }){
       });
     }
   }
-  const { signOut } = useContext(AuthContext);
 
   function moveToShow(){
     navigation.navigate("Show");
@@ -175,9 +174,6 @@ export function IndexScreen({ navigation }){
     <View style={styles.container}>
       <Form />
       <Albums />
-      <View style={styles.logout}>
-        <Button title="ログアウト" onPress={() => signOut()} />
-      </View>
     </View>
   );
 }
@@ -229,7 +225,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     height: 40
   },
-  logout: { marginBottom: 20 },
   image: {
     width: 350,
     height: 200,
