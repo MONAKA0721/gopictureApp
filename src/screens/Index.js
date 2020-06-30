@@ -15,17 +15,18 @@ import {
 import ImagePicker from 'react-native-image-crop-picker';
 import AsyncStorage from '@react-native-community/async-storage';
 
-let data = new FormData();
-
 export const AuthContext = React.createContext(null);
+
+let data = new FormData();
 
 export function IndexScreen({ navigation }){
   const [isLoading, setIsLoading] = useState(false);
   const [apiToken, setApiToken] = useState('');
   const [albums, setAlbums] = useState([]);
   const [isDisplayingForm, setIsDisplayingForm] = useState(false);
-  const [albumName, setAlbumName] = useState('');
-  const [isPhoto, setIsPhoto] = useState(false);
+  const [pictureCount, setPictureCount] = useState(0);
+  const [isUploading, setIsUploading] = useState(false);
+  const [flag, setFlag] = useState(false);
 
   async function fetchApiToken(){
     const token = await AsyncStorage.getItem('api_token');
@@ -43,9 +44,10 @@ export function IndexScreen({ navigation }){
   }
 
   useEffect(() =>{
+    setIsDisplayingForm(false);
     setIsLoading(true);
     fetchApiToken();
-  }, []);
+  }, [ flag ]);
 
   function openImagePicker(){
     ImagePicker.openPicker({
@@ -53,47 +55,63 @@ export function IndexScreen({ navigation }){
       height: 400,
       multiple: true
     }).then(images => {
-      images.map((item, index) => {
+      images.forEach((item, index) => {
         data.append("upload-firebase", ({
           uri: item.path,
           type: "image/jpeg",
           name: item.filename || `temp_image_${index}.jpg`,
         }));
-      })
-      setIsPhoto(true)
-    }).catch(e => alert(e));
+      });
+      setPictureCount(images.length);
+    }).catch(e => console.log(e));
   }
 
-  function upload(){
-    if(albumName === "" || !isPhoto){
+  function upload(albumName){
+    setIsUploading(true);
+    if (pictureCount == 0){
+      Alert.alert(
+        "アップロード失敗",
+        "写真を選択してください",
+        [{ text: "OK"}],
+        { cancelable: false }
+      );
+      setIsUploading(false);
+      return 0;
+    }
+    if(albumName === ""){
       Alert.alert(
         "アップロード失敗",
         "ファイル名を入力してください",
         [{ text: "OK"}],
         { cancelable: false }
       );
-    }else{
-      data.append("album", albumName)
-      fetch(`https://gopicture-docker-stg.herokuapp.com/api/upload`, {
-        method: "post",
-        headers: {
-          Authorization: 'bearer ' + apiToken,
-        },
-        body: data,
-      })
-      .then(res => res.json())
-      .then(res => {
-        Alert.alert(
-          "アップロード成功",
-          "アルバムをアップロードすることに成功しました",
-          [{ text: "OK"}],
-          { cancelable: false }
-        );
-      })
-      .catch(err => {
-        console.error("error uploading images: ", err);
-      });
+      setIsUploading(false);
+      return 0;
     }
+    data.append("album", albumName)
+    fetch(`https://gopicture-docker-stg.herokuapp.com/api/upload`, {
+      method: "post",
+      headers: {
+        Authorization: 'bearer ' + apiToken,
+      },
+      body: data,
+    })
+    .then(res => res.json())
+    .then(res => {
+      setIsUploading(false);
+      setPictureCount(0);
+      data = new FormData();
+      Alert.alert(
+        "アップロード成功",
+        "アルバムをアップロードすることに成功しました",
+        [{ text: "OK" }],
+        { cancelable: false }
+      );
+      setFlag(!flag);
+    })
+    .catch(err => {
+      console.error("error uploading images: ", err);
+    });
   }
 
   function moveToShow(){
@@ -126,6 +144,8 @@ export function IndexScreen({ navigation }){
   }
 
   function Form(){
+    const [albumName, setAlbumName] = useState('');
+
     if(isDisplayingForm){
       return(
         <View>
@@ -143,18 +163,27 @@ export function IndexScreen({ navigation }){
             >
               <Text style={{ color: 'white', fontSize: 24 }}>+</Text>
             </TouchableOpacity>
+            <Text>{pictureCount}個の画像が選択されています</Text>
           </View>
           <Text>アルバム名</Text>
           <TextInput
             style={styles.textInput}
-            onChangeText={(albumName) => setAlbumName(albumName)}
+            value={albumName}
+            onChangeText={setAlbumName}
           />
-          <TouchableOpacity
-            style={styles.uploadButton}
-            onPress={() => upload()}
-          >
-            <Text style={{color: 'white', fontSize:18}}>写真をアップロードする</Text>
-          </TouchableOpacity>
+          {isUploading ? (
+            <View style={{ alignItems: 'center' }}>
+              <Text>アップロード中...</Text>
+              <ActivityIndicator />
+            </View>
+          ) : (
+            <TouchableOpacity
+              style={styles.uploadButton}
+              onPress={() => upload(albumName)}
+            >
+              <Text style={{color: 'white', fontSize:18}}>写真をアップロードする</Text>
+            </TouchableOpacity>
+          )}
         </View>
       )
     }
