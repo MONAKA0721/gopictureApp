@@ -50,6 +50,7 @@ export function IndexScreen({ navigation }){
   }, [ flag ]);
 
   function openImagePicker(){
+    data = new FormData();
     ImagePicker.openPicker({
       width: 300,
       height: 400,
@@ -63,7 +64,10 @@ export function IndexScreen({ navigation }){
         }));
       });
       setPictureCount(images.length);
-    }).catch(e => console.log(e));
+    }).catch(e => {
+      console.log(e);
+      setPictureCount(0);
+    });
   }
 
   function upload(albumName){
