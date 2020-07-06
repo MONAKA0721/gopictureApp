@@ -6,6 +6,7 @@ import {
   FlatList,
   Image,
   ImageBackground,
+  NativeModules,
   StyleSheet,
   Text,
   TextInput,
@@ -14,6 +15,7 @@ import {
 } from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 import AsyncStorage from '@react-native-community/async-storage';
+import { WEBAPP_URL } from '../../config';
 
 export const AuthContext = React.createContext(null);
 
@@ -30,12 +32,22 @@ export function IndexScreen({ navigation }){
 
   async function fetchApiToken(){
     const token = await AsyncStorage.getItem('api_token');
+    const client = await AsyncStorage.getItem('client');
+    const uid = await AsyncStorage.getItem('uid');
     setApiToken(token);
-    fetch(`https://gopicture-docker-stg.herokuapp.com/api/index`,{
+    NativeModules.Networking.clearCookies(() => {});
+    fetch( WEBAPP_URL + `api/v1/albums`,{
       method: 'GET',
-      headers: { 'Authorization': 'bearer ' + token }
+      headers: {
+        'access-token': token,
+        'client': client,
+        'uid': uid,
+        'Cookie': ''
+      }
     })
-    .then((response) => response.json())
+    .then((response) => {
+      return response.json();
+    })
     .then((jsonData) => {
       setAlbums(jsonData);
     })
@@ -57,7 +69,7 @@ export function IndexScreen({ navigation }){
       multiple: true
     }).then(images => {
       images.forEach((item, index) => {
-        data.append("upload-firebase", ({
+        data.append("pictures[]", ({
           uri: item.path,
           type: "image/jpeg",
           name: item.filename || `temp_image_${index}.jpg`,
@@ -70,7 +82,7 @@ export function IndexScreen({ navigation }){
     });
   }
 
-  function upload(albumName){
+  async function upload(albumName){
     setIsUploading(true);
     if (pictureCount == 0){
       Alert.alert(
@@ -92,15 +104,19 @@ export function IndexScreen({ navigation }){
       setIsUploading(false);
       return 0;
     }
-    data.append("album", albumName)
-    fetch(`https://gopicture-docker-stg.herokuapp.com/api/upload`, {
+    data.append("name", albumName);
+    const token = await AsyncStorage.getItem('api_token');
+    const client = await AsyncStorage.getItem('client');
+    const uid = await AsyncStorage.getItem('uid');
+    fetch( WEBAPP_URL + `api/v1/albums`, {
       method: "post",
       headers: {
-        Authorization: 'bearer ' + apiToken,
+        'access-token': token,
+        'client': client,
+        'uid': uid
       },
       body: data,
     })
-    .then(res => res.json())
     .then(res => {
       setIsUploading(false);
       setPictureCount(0);
@@ -132,14 +148,14 @@ export function IndexScreen({ navigation }){
         keyExtractor={(item, index) => index.toString()}
         renderItem={({item}) => (
           <TouchableOpacity
-            onPress={() => moveToShow()}
+            onPress={() => moveToShow( WEBAPP_URL + `api/v1/allbums/${item[0].album_hash}`)}
           >
             <ImageBackground
               style={styles.image}
               imageStyle={{ borderRadius: 15, opacity: 0.8 }}
-              source={{uri: `https://storage.googleapis.com/go-pictures.appspot.com/${item.Hash}/${item.TopPicName}`}}
+              source={{uri: `${item[1].picture_name.url}`}}
             >
-              <Text style={styles.albumName}>{item.Name}</Text>
+              <Text style={styles.albumName}>{item[0].name}</Text>
             </ImageBackground>
           </TouchableOpacity>
         )}

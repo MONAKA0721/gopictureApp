@@ -10,6 +10,7 @@ import { AuthContext } from './src/screens/Index';
 import ShowScreen from './src/screens/Show';
 import PictureScreen from './src/screens/Picture';
 import SplashScreen from './src/screens/Splash';
+import { WEBAPP_URL } from './config';
 
 const Stack = createStackNavigator();
 
@@ -135,19 +136,26 @@ export default function App() {
       }
       dispatch({ type: 'VALID_PASS' });
       dispatch({ type: 'SET_LOADING' });
-      fetch(`https://gopicture-docker-stg.herokuapp.com/api/login`,{
+      fetch( WEBAPP_URL + `api/v1/auth/sign_in`,{
         method:'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({email: data.email, password: data.password})
       }).then((response) => {
         if (response.ok){
-          return response.json()
+          const response_headers = {
+            accessToken: response.headers.get("access-token"),
+            client: response.headers.get("client"),
+            uid:  response.headers.get("uid")
+          }
+          return response_headers;
         }
         throw new Error('Signin failed')
-      }).then((jsonData) => {
-          if (jsonData.token) {
-            AsyncStorage.setItem('api_token', jsonData.token);
-            dispatch({ type: 'SIGN_IN', token: jsonData.token });
+      }).then((headers) => {
+          if (headers["accessToken"]) {
+            AsyncStorage.setItem('api_token', headers["accessToken"]);
+            AsyncStorage.setItem('client', headers["client"]);
+            AsyncStorage.setItem('uid', headers["uid"]);
+            dispatch({ type: 'SIGN_IN', token: headers["accessToken"]});
           }
           else {
             dispatch({ type: 'FAIL' });
