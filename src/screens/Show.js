@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Button,
   Dimensions,
@@ -11,64 +11,61 @@ import {
   View
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
+import { WEBAPP_URL } from '../../config';
 
 const ITEM_WIDTH = Dimensions.get('window').width;
 
-export default class Show extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      apiToken: '',
-      loading: false,
-      list: [0,1,2,3,4,5,6,7,8,9]
-    };
+export default function ShowScreen({ route, navigation }){
+  const [ isLoading, setIsLoading ] = useState(false);
+  const [ pictures, setPictures ] = useState([]);
+
+  useEffect(() =>{
+    fetchPictures();
+  }, []);
+
+  async function fetchPictures() {
+    setIsLoading(true);
+    const token = await AsyncStorage.getItem('api_token');
+    const client = await AsyncStorage.getItem('client');
+    const uid = await AsyncStorage.getItem('uid');
+    fetch( WEBAPP_URL + `api/v1/albums/${route.params.album_hash}`,{
+      method: 'GET',
+      headers: {
+        'access-token': token,
+        'client': client,
+        'uid': uid
+      }
+    })
+    .then((response) => response.json())
+    .then((jsonData) => {
+      console.log(jsonData);
+      setPictures(jsonData);
+    })
+    .catch((error) => console.error(error));
+    setIsLoading(false);
   }
 
-  async componentDidMount() {
-    this.setState({ loading: true, apiToken: await AsyncStorage.getItem('api_token') })
-    // fetch(`https://gopicture-docker-stg.herokuapp.com/api/index`,{
-    //   method: 'GET',
-    //   headers: { 'Authorization': 'bearer '+this.state.apiToken}
-    // })
-    // .then((response) => response.json())
-    // .then((jsonData) => {
-    //   this.setState({ albums: jsonData });
-    //   this.setState({ loading: false });
-    // })
-    // .catch((error) => console.error(error));
-    this.setState({ loading: false });
-  }
-
-  moveToIndex(){
-    this.props.navigation.navigate('main');
-  }
-
-  render() {
-    return (
-      <View
-        style={styles.container}
-      >
-        <FlatList
-          data={this.state.list}
-          keyExtractor={(item, index) => index.toString()}
-          numColumns={2}
-
-          renderItem={({item}) => (
-            <View>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('Picture')}>
-              <Image
-                source={{ uri: 'https://source.unsplash.com/random' }}
-                style={styles.imageStyle}
-              />
-            </TouchableOpacity>
-            </View>
-          )}
-        />
-      <Button title="indexページへ" onPress={() => {this.moveToIndex()}} />
-      </View>
-    );
-  }
+  return (
+    <View
+      style={styles.container}
+    >
+      <FlatList
+        data={pictures}
+        numColumns={2}
+        renderItem={({item}) => (
+          <View>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Picture', { pictures })}>
+            <Image
+              source={{ uri: item.picture_url }}
+              style={styles.imageStyle}
+            />
+          </TouchableOpacity>
+          </View>
+        )}
+      />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

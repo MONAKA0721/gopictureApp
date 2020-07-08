@@ -1,28 +1,26 @@
 import React from 'react';
 import {
-  FlatList,
+  Dimensions,
   Image,
-  View, Text, Button, TextInput,
-  TouchableOpacity,ActivityIndicator, StyleSheet, AsyncStorage,
-  Dimensions} from 'react-native';
+  StyleSheet,
+  TouchableOpacity,
+  View
+} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import Swiper from 'react-native-swiper';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-let { width, height, scale } = Dimensions.get('window');
+const { width, height, scale } = Dimensions.get('window');
 
-const data=[
-  1, 2, 3, 4, 5
-]
-
-export default function PictureScreen(){
+export default function PictureScreen({ route, navigation }){
   return (
-      <Swiper style={styles.wrapper}>
+      <Swiper>
         {
-          data.map((l) =>(
+          route.params.pictures.map((picture) =>(
             <>
               <Image
-                source={{ uri: 'https://source.unsplash.com/random' }}
-                style={styles.imageStyle}
+                source={{ uri: picture.picture_name.url }}
+                style={ styles.imageStyle }
               />
               <View style={{flex: 1, flexDirection: 'row'}}>
                 <LikeButton />
@@ -34,26 +32,24 @@ export default function PictureScreen(){
       </Swiper>
     )
 }
+
 function LikeButton(){
   return(
-    <TouchableOpacity style={styles.likeButton}>
+    <TouchableOpacity style={ styles.likeButton }>
       <Icon name="heart-o" size={40}/>
     </TouchableOpacity>
   )
 }
+
 function DownloadButton(){
   return(
-    <TouchableOpacity style={styles.downloadButton}>
+    <TouchableOpacity style={ styles.downloadButton }>
       <Icon name="download" size={40}/>
     </TouchableOpacity>
   )
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
-  },
-  viewStyle: {
-  },
   imageStyle: {
     flex: 6,
     width: width,

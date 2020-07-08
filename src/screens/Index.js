@@ -29,6 +29,7 @@ export function IndexScreen({ navigation }){
   const [pictureCount, setPictureCount] = useState(0);
   const [isUploading, setIsUploading] = useState(false);
   const [flag, setFlag] = useState(false);
+  const [rootAlbumName, setRootAlbumName] = useState('');
 
   async function fetchApiToken(){
     const token = await AsyncStorage.getItem('api_token');
@@ -42,12 +43,9 @@ export function IndexScreen({ navigation }){
         'access-token': token,
         'client': client,
         'uid': uid,
-        'Cookie': ''
       }
     })
-    .then((response) => {
-      return response.json();
-    })
+    .then((response) => response.json())
     .then((jsonData) => {
       setAlbums(jsonData);
     })
@@ -61,7 +59,8 @@ export function IndexScreen({ navigation }){
     fetchApiToken();
   }, [ flag ]);
 
-  function openImagePicker(){
+  function openImagePicker(albumName){
+    setRootAlbumName(albumName)
     data = new FormData();
     ImagePicker.openPicker({
       width: 300,
@@ -109,7 +108,7 @@ export function IndexScreen({ navigation }){
     const client = await AsyncStorage.getItem('client');
     const uid = await AsyncStorage.getItem('uid');
     fetch( WEBAPP_URL + `api/v1/albums`, {
-      method: "post",
+      method: "POST",
       headers: {
         'access-token': token,
         'client': client,
@@ -134,10 +133,6 @@ export function IndexScreen({ navigation }){
     });
   }
 
-  function moveToShow(){
-    navigation.navigate("Show");
-  }
-
   function Albums(){
     if(isLoading) return <ActivityIndicator />
     return(
@@ -148,7 +143,7 @@ export function IndexScreen({ navigation }){
         keyExtractor={(item, index) => index.toString()}
         renderItem={({item}) => (
           <TouchableOpacity
-            onPress={() => moveToShow( WEBAPP_URL + `api/v1/allbums/${item[0].album_hash}`)}
+            onPress={() => navigation.navigate("Show", { album_hash : item[0].album_hash })}
           >
             <ImageBackground
               style={styles.image}
@@ -164,7 +159,7 @@ export function IndexScreen({ navigation }){
   }
 
   function Form(){
-    const [albumName, setAlbumName] = useState('');
+    const [albumName, setAlbumName] = useState(rootAlbumName);
 
     if(isDisplayingForm){
       return(
@@ -179,7 +174,7 @@ export function IndexScreen({ navigation }){
           <View style={{ alignItems: 'center' }}>
             <TouchableOpacity
               style={styles.addButton}
-              onPress={() => openImagePicker()}
+              onPress={() => openImagePicker(albumName)}
             >
               <Text style={{ color: 'white', fontSize: 24 }}>+</Text>
             </TouchableOpacity>
