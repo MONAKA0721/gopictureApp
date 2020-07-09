@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   ActivityIndicator,
   Alert,
-  Button,
   FlatList,
-  Image,
   ImageBackground,
   NativeModules,
   StyleSheet,
@@ -48,14 +46,17 @@ export function IndexScreen({ navigation }){
     .then((response) => response.json())
     .then((jsonData) => {
       setAlbums(jsonData);
+      setIsLoading(false);
     })
-    .catch((error) => console.error(error));
-    setIsLoading(false);
+    .catch((error) => {
+      console.error(error);
+      setIsLoading(false);
+    });
   }
 
   useEffect(() =>{
-    setIsDisplayingForm(false);
     setIsLoading(true);
+    setIsDisplayingForm(false);
     fetchApiToken();
   }, [ flag ]);
 
@@ -134,27 +135,35 @@ export function IndexScreen({ navigation }){
   }
 
   function Albums(){
-    if(isLoading) return <ActivityIndicator />
-    return(
-      <FlatList
-        contentContainerStyle={{ alignItems: 'center' }}
-        showsVerticalScrollIndicator={false}
-        data={albums}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({item}) => (
-          <TouchableOpacity
-            onPress={() => navigation.navigate("Show", { album_hash : item[0].album_hash })}
-          >
-            <ImageBackground
-              style={styles.image}
-              imageStyle={{ borderRadius: 15, opacity: 0.8 }}
-              source={{uri: `${item[1].picture_name.url}`}}
-            >
-              <Text style={styles.albumName}>{item[0].name}</Text>
-            </ImageBackground>
-          </TouchableOpacity>
+    return (
+      <>
+        {isLoading ? (
+          <ActivityIndicator />
+        ) : (
+          <>
+            <Form />
+            <FlatList
+              contentContainerStyle={{ alignItems: 'center' }}
+              showsVerticalScrollIndicator={false}
+              data={albums}
+              keyExtractor={(item, index) => index.toString()}
+              renderItem={({item}) => (
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("Show", { album_hash : item[0].album_hash })}
+                >
+                  <ImageBackground
+                    style={styles.image}
+                    imageStyle={{ borderRadius: 15, opacity: 0.8 }}
+                    source={{uri: `${item[1].picture_name.url}`}}
+                  >
+                    <Text style={styles.albumName}>{item[0].name}</Text>
+                  </ImageBackground>
+                </TouchableOpacity>
+              )}
+            />
+          </>
         )}
-      />
+      </>
     )
   }
 
@@ -216,7 +225,6 @@ export function IndexScreen({ navigation }){
 
   return(
     <View style={styles.container}>
-      <Form />
       <Albums />
     </View>
   );

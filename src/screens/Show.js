@@ -38,7 +38,6 @@ export default function ShowScreen({ route, navigation }){
     })
     .then((response) => response.json())
     .then((jsonData) => {
-      console.log(jsonData);
       setPictures(jsonData);
     })
     .catch((error) => console.error(error));
@@ -52,10 +51,11 @@ export default function ShowScreen({ route, navigation }){
       <FlatList
         data={pictures}
         numColumns={2}
-        renderItem={({item}) => (
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({item, index}) => (
           <View>
           <TouchableOpacity
-            onPress={() => navigation.navigate('Picture', { pictures })}>
+            onPress={() => navigation.navigate('Picture', { pictures, index })}>
             <Image
               source={{ uri: item.picture_url }}
               style={styles.imageStyle}

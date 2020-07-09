@@ -4,15 +4,15 @@ import {
   Text,
   TextInput,
   StyleSheet,
-  View,
-  TouchableOpacity
+  View
 } from 'react-native';
 import { AuthContext } from './Index';
 
-export default function SignInScreen({ navigation }) {
-  const { signIn, state } = useContext(AuthContext);
+export default function SignUpScreen() {
+  const { signUp, state } = useContext(AuthContext);
   const [email, setEmail] = useState(state.email);
   const [password, setPassword] = useState('');
+  const [password_confirmation, setPasswordConfirmation] = useState('');
 
   return (
     <View style={styles.container}>
@@ -32,13 +32,14 @@ export default function SignInScreen({ navigation }) {
         onChangeText={setPassword}
         secureTextEntry
       />
-      <Button title="ログイン" onPress={() => signIn({ email, password })} />
-      <TouchableOpacity
-        onPress={() => navigation.navigate("SignUp")} 
-        style={styles.signUpLink}
-      >
-        <Text style={{color: '#6495ed'}}>新規登録はこちら</Text>
-      </TouchableOpacity>
+      <TextInput
+        style={styles.textInput}
+        placeholder='パスワード(確認用)'
+        value={password_confirmation}
+        onChangeText={setPasswordConfirmation}
+        secureTextEntry
+      />
+      <Button title="新規登録" onPress={() => signUp({ email, password, password_confirmation })} />
     </View>
   );
 }
@@ -57,8 +58,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  signUpLink: {
-    marginTop: 20,
   },
 })

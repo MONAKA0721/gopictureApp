@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-community/async-storage';
 
 import SignInScreen from './src/screens/Signin';
+import SignUpScreen from './src/screens/SignUp';
 import Home from './src/screens/Home';
 import { AuthContext } from './src/screens/Index';
 import ShowScreen from './src/screens/Show';
@@ -194,15 +194,26 @@ export default function App() {
           />
         ) : state.userToken == null ? (
           // No token found, user isn't signed in
-          <Stack.Screen
-            name="SignIn"
-            component={SignInScreen}
-            options={{
-              title: 'ログイン',
-              // When logging out, a pop animation feels intuitive
-              animationTypeForReplace: state.isSignout ? 'pop' : 'push',
-            }}
-          />
+          <>
+            <Stack.Screen
+              name="SignIn"
+              component={SignInScreen}
+              options={{
+                title: 'ログイン',
+                // When logging out, a pop animation feels intuitive
+                animationTypeForReplace: state.isSignout ? 'pop' : 'push',
+              }}
+            />
+            <Stack.Screen
+              name="SignUp"
+              component={SignUpScreen}
+              options={{
+                title: '新規登録',
+                // When logging out, a pop animation feels intuitive
+                animationTypeForReplace: state.isSignout ? 'pop' : 'push',
+              }}
+            />
+          </>
         ) : (
           <>
             <Stack.Screen name="Memopic" component={Home} />
