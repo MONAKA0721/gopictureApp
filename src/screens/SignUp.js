@@ -4,7 +4,7 @@ import {
   Text,
   TextInput,
   StyleSheet,
-  View
+  View,
 } from 'react-native';
 import { AuthContext } from './Index';
 
@@ -16,9 +16,9 @@ export default function SignUpScreen() {
 
   return (
     <View style={styles.container}>
-      {state.failed && <Text style={{color:'red'}}>ログインに失敗しました</Text>}
       {state.invalid_email && <Text style={{color:'red'}}>メールアドレスを入力してください</Text>}
-      {state.invalid_pass && <Text style={{color:'red'}}>パスワードを入力してください</Text>}
+      {state.invalid_pass && <Text style={{color:'red'}}>パスワードは6文字以上入力してください</Text>}
+      {state.mismatch_pass && <Text style={{color:'red'}}>パスワードが確認用と一致しません</Text>}
       <TextInput
         style={styles.textInput}
         placeholder="メールアドレス"

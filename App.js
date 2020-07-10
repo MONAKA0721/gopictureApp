@@ -27,10 +27,11 @@ function reducer(prevState, action){
         ...prevState,
         isSignout: false,
         userToken: action.token,
-        isLoading: false,
         failed: false,
         invalid_email: false,
         invalid_pass: false,
+        mismatch_pass: false,
+        isUsedEmail: false,
       };
     case 'SIGN_OUT':
       return {
@@ -52,35 +53,49 @@ function reducer(prevState, action){
       return {
         ...prevState,
         failed: true,
-        isLoading: false,
         invalid_email: false,
         invalid_pass: false,
-      };
-    case 'VALID_EMAIL':
-      return {
-        ...prevState,
-        invalid_email: false,
+        mismatch_pass: false,
       };
     case 'INVALID_EMAIL':
       return {
         ...prevState,
         invalid_email: true,
       };
-    case 'VALID_PASS':
-      return {
-        ...prevState,
-        invalid_pass: false,
-      };
     case 'INVALID_PASS':
       return {
         ...prevState,
         invalid_pass: true,
       };
+    case 'MISMATCH_PASS':
+      return {
+        ...prevState,
+        mismatch_pass: true,
+      }
     case 'SET_EMAIL':
       return {
         ...prevState,
         email: action.email,
       };
+    case 'SET_USEDEMAIL':
+      return {
+        ...prevState,
+        isUsedEmail: true,
+      };
+    case 'FRESH_ALL_ERROR':
+      return {
+        ...prevState,
+        failed: false,
+        invalid_email: false,
+        invalid_pass: false,
+        mismatch_pass: false,
+        isUsedEmail: false,
+      }
+    case 'USED_EMAIL':
+      return {
+        ...prevState,
+        isUsedEmail: true,
+      }
   }
 }
 
@@ -88,12 +103,14 @@ export default function App() {
 
   const [state, dispatch] = React.useReducer(reducer,
     {
-      isLoading: true,
+      isLoading: false,
       isSignout: false,
       userToken: null,
       failed: false,
       invalid_email: false,
       invalid_pass: false,
+      mismatch_pass: false,
+      isUsedEmail: false,
       email: '',
     }
   );
@@ -121,20 +138,18 @@ export default function App() {
 
   const authContext = {
     signIn: async data => {
+      dispatch({ type: 'FRESH_ALL_ERROR' });
+      dispatch({ type: 'SET_EMAIL', email: data.email });
       if ( data.email == '' ){
-        dispatch({ type: 'SET_EMAIL', email: data.email });
         dispatch({ type: 'INVALID_EMAIL' });
         if ( data.password == '' ){
           dispatch({ type: 'INVALID_PASS' });
         }
         return 0;
       }
-      dispatch({ type: 'SET_EMAIL', email: data.email });
-      dispatch({ type: 'VALID_EMAIL' });
       if ( data.password == '' ){
         return dispatch({ type: 'INVALID_PASS' });
       }
-      dispatch({ type: 'VALID_PASS' });
       dispatch({ type: 'SET_LOADING' });
       fetch( WEBAPP_URL + `api/v1/auth/sign_in`,{
         method:'POST',
@@ -156,13 +171,16 @@ export default function App() {
             AsyncStorage.setItem('client', headers["client"]);
             AsyncStorage.setItem('uid', headers["uid"]);
             dispatch({ type: 'SIGN_IN', token: headers["accessToken"]});
+            dispatch({ type: 'UNSET_LOADING' });
           }
           else {
             dispatch({ type: 'FAIL' });
+            dispatch({ type: 'UNSET_LOADING' });
           }
         })
         .catch((error) => {
-          dispatch({type: 'FAIL' });
+          dispatch({ type: 'FAIL' });
+          dispatch({ type: 'UNSET_LOADING' });
         });
     },
     signOut: () => {
@@ -170,12 +188,54 @@ export default function App() {
       dispatch({ type: 'SIGN_OUT' });
     },
     signUp: async data => {
-      // In a production app, we need to send user data to server and get a token
-      // We will also need to handle errors if sign up failed
-      // After getting token, we need to persist the token using `AsyncStorage`
-      // In the example, we'll use a dummy token
-
-      dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });
+      dispatch({ type: 'FRESH_ALL_ERROR' });
+      dispatch({ type: 'SET_EMAIL', email: data.email });
+      if ( data.email == '' ){
+        dispatch({ type: 'INVALID_EMAIL' });
+        if ( data.password == '' ){
+          dispatch({ type: 'INVALID_PASS' });
+        }
+        return 0;
+      }
+      if ( data.password.length < 6 ){
+        return dispatch({ type: 'INVALID_PASS' });
+      }
+      if ( data.password != data.password_confirmation ){
+        return dispatch({ type: 'MISMATCH_PASS' });
+      }
+      dispatch({ type: 'SET_LOADING' });
+      fetch( WEBAPP_URL + `api/v1/auth`,{
+        method:'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: data.email, password: data.password })
+      }).then((response) => {
+        if (response.ok){
+          const response_headers = {
+            accessToken: response.headers.get("access-token"),
+            client: response.headers.get("client"),
+            uid:  response.headers.get("uid")
+          }
+          return response_headers;
+        }
+        throw new Error('SignUp failed')
+      }).then((headers) => {
+        console.log("headers");
+        if (headers["accessToken"]) {
+          AsyncStorage.setItem('api_token', headers["accessToken"]);
+          AsyncStorage.setItem('client', headers["client"]);
+          AsyncStorage.setItem('uid', headers["uid"]);
+          dispatch({ type: 'SIGN_IN', token: headers["accessToken"] });
+          dispatch({ type: 'UNSET_LOADING' });
+        }
+        else {
+          dispatch({ type: 'FAIL' });
+          dispatch({ type: 'UNSET_LOADING' });
+        }
+      })
+      .catch((error) => {
+        dispatch({ type: 'USED_EMAIL' });
+        dispatch({ type: 'UNSET_LOADING' });
+      });      
     },
     state: state
   }

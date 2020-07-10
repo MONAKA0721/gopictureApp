@@ -16,6 +16,7 @@ export default function SignInScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
+      {state.isUsedEmail && <Text style={{color:'red'}}>このメールアドレスは不正であるかすでに登録されています</Text>}
       {state.failed && <Text style={{color:'red'}}>ログインに失敗しました</Text>}
       {state.invalid_email && <Text style={{color:'red'}}>メールアドレスを入力してください</Text>}
       {state.invalid_pass && <Text style={{color:'red'}}>パスワードを入力してください</Text>}
