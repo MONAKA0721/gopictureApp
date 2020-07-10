@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Button,
   Dimensions,
   FlatList,
   Image,
   StyleSheet,
-  Text,
-  TextInput,
   TouchableOpacity,
   View
 } from 'react-native';
@@ -16,15 +13,14 @@ import { WEBAPP_URL } from '../../config';
 const ITEM_WIDTH = Dimensions.get('window').width;
 
 export default function ShowScreen({ route, navigation }){
-  const [ isLoading, setIsLoading ] = useState(false);
   const [ pictures, setPictures ] = useState([]);
 
   useEffect(() =>{
-    fetchPictures();
+    const focus = navigation.addListener('focus', () => fetchPictures());
+    return focus;
   }, []);
 
   async function fetchPictures() {
-    setIsLoading(true);
     const token = await AsyncStorage.getItem('api_token');
     const client = await AsyncStorage.getItem('client');
     const uid = await AsyncStorage.getItem('uid');
@@ -41,7 +37,6 @@ export default function ShowScreen({ route, navigation }){
       setPictures(jsonData);
     })
     .catch((error) => console.error(error));
-    setIsLoading(false);
   }
 
   return (

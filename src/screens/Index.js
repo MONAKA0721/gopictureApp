@@ -134,7 +134,7 @@ export function IndexScreen({ navigation }){
     });
   }
 
-  function Albums(){
+  function Albums(){    
     return (
       <>
         {isLoading ? (
@@ -149,7 +149,7 @@ export function IndexScreen({ navigation }){
               keyExtractor={(item, index) => index.toString()}
               renderItem={({item}) => (
                 <TouchableOpacity
-                  onPress={() => navigation.navigate("Show", { album_hash : item[0].album_hash })}
+                  onPress={() => navigation.navigate("Show", { album_hash : item[0].album_hash, name: item[0].name })}
                 >
                   <ImageBackground
                     style={styles.image}

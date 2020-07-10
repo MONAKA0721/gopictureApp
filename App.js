@@ -219,7 +219,6 @@ export default function App() {
         }
         throw new Error('SignUp failed')
       }).then((headers) => {
-        console.log("headers");
         if (headers["accessToken"]) {
           AsyncStorage.setItem('api_token', headers["accessToken"]);
           AsyncStorage.setItem('client', headers["client"]);
@@ -277,8 +276,16 @@ export default function App() {
         ) : (
           <>
             <Stack.Screen name="Memopic" component={Home} />
-            <Stack.Screen name="Show" component={ShowScreen} />
-            <Stack.Screen name="Picture" component={PictureScreen} />
+            <Stack.Screen
+              name="Show"
+              component={ShowScreen} 
+              options={({ route }) => ({ title: route.params.name })}
+            />
+            <Stack.Screen
+              name="Picture"
+              component={PictureScreen} 
+              options={{ title: '' }}
+            />
           </>
         )}
 
