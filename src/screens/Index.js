@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
   ActivityIndicator,
   Alert,
@@ -28,6 +28,7 @@ export function IndexScreen({ navigation }){
   const [isUploading, setIsUploading] = useState(false);
   const [flag, setFlag] = useState(false);
   const [rootAlbumName, setRootAlbumName] = useState('');
+  const { resetToken } = useContext(AuthContext);
 
   async function fetchApiToken(){
     const token = await AsyncStorage.getItem('api_token');
@@ -43,7 +44,13 @@ export function IndexScreen({ navigation }){
         'uid': uid,
       }
     })
-    .then((response) => response.json())
+    .then((response) => {
+      if(response.ok){
+        return response.json();
+      }else{
+        resetToken();
+      }
+    })
     .then((jsonData) => {
       setAlbums(jsonData);
       setIsLoading(false);

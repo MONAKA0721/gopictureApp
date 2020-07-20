@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
   Dimensions,
   FlatList,
@@ -9,12 +9,13 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { WEBAPP_URL } from '../../config';
+import { AuthContext } from './Index';
 
 const ITEM_WIDTH = Dimensions.get('window').width;
 
 export default function ShowScreen({ route, navigation }){
   const [ pictures, setPictures ] = useState([]);
-
+  const { resetToken } = useContext(AuthContext);
   useEffect(() =>{
     const focus = navigation.addListener('focus', () => fetchPictures());
     return focus;
@@ -32,7 +33,13 @@ export default function ShowScreen({ route, navigation }){
         'uid': uid
       }
     })
-    .then((response) => response.json())
+    .then((response) => {
+      if(response.ok){
+        return response.json();
+      }else{
+        resetToken();
+      }
+    })
     .then((jsonData) => {
       setPictures(jsonData);
     })

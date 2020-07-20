@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { NativeModules } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -118,19 +119,33 @@ export default function App() {
   React.useEffect(() => {
     // Fetch the token from storage then navigate to our appropriate place
     const bootstrapAsync = async () => {
-      let userToken;
-
+      dispatch({ type: 'SET_LOADING' });
       try {
-        userToken = await AsyncStorage.getItem('api_token');
+        const apiToken = await AsyncStorage.getItem('api_token');
+        const client = await AsyncStorage.getItem('client');
+        const uid = await AsyncStorage.getItem('uid');
+        NativeModules.Networking.clearCookies(() => {});
+        fetch( WEBAPP_URL + `api/v1/albums`,{
+          method: 'GET',
+          headers: {
+            'access-token': apiToken,
+            'client': client,
+            'uid': uid,
+          }
+        })
+        .then((response) => {
+          if(response.ok){
+            dispatch({ type: 'RESTORE_TOKEN', token: apiToken });
+          }else{
+            dispatch({ type: 'RESTORE_TOKEN', token: null });
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
       } catch (e) {
-        // Restoring token failed
+        dispatch({ type: 'RESTORE_TOKEN', token: null });
       }
-
-      // After restoring token, we may need to validate it in production apps
-
-      // This will switch to the App screen or Auth screen and this loading
-      // screen will be unmounted and thrown away.
-      dispatch({ type: 'RESTORE_TOKEN', token: userToken });
     };
 
     bootstrapAsync();
@@ -235,6 +250,9 @@ export default function App() {
         dispatch({ type: 'USED_EMAIL' });
         dispatch({ type: 'UNSET_LOADING' });
       });      
+    },
+    resetToken: () => {
+      dispatch({ type: 'RESTORE_TOKEN', token: null });
     },
     state: state
   }
