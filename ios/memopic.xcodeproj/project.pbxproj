@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* gopictureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* gopictureTests.m */; };
+		00E356F31AD99517003FC87E /* memopicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* memopicTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -15,11 +15,11 @@
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2DCD954D1E0B4F2C00145EB5 /* gopictureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* gopictureTests.m */; };
-		46EBFEB15FB5A93E0DA2D071 /* libPods-gopicture-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC15B42810FE21648CE6CD7 /* libPods-gopicture-tvOS.a */; };
-		BFE61E26DDDC87A3B3995D5E /* libPods-gopicture-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7251F4F23D90065B080797 /* libPods-gopicture-tvOSTests.a */; };
-		CC3D7210CB3AC3DBB6761576 /* libPods-gopicture-gopictureTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E42C1A3DEA9473E7835C5AB5 /* libPods-gopicture-gopictureTests.a */; };
-		EA0E2EB21A78E23071C8F70E /* libPods-gopicture.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2749F765CA449DFC550247DD /* libPods-gopicture.a */; };
+		2DCD954D1E0B4F2C00145EB5 /* memopicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* memopicTests.m */; };
+		46EBFEB15FB5A93E0DA2D071 /* libPods-memopic-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC15B42810FE21648CE6CD7 /* libPods-memopic-tvOS.a */; };
+		BFE61E26DDDC87A3B3995D5E /* libPods-memopic-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7251F4F23D90065B080797 /* libPods-memopic-tvOSTests.a */; };
+		CC3D7210CB3AC3DBB6761576 /* libPods-memopic-memopicTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E42C1A3DEA9473E7835C5AB5 /* libPods-memopic-memopicTests.a */; };
+		EA0E2EB21A78E23071C8F70E /* libPods-memopic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2749F765CA449DFC550247DD /* libPods-memopic.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,14 +28,14 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = gopicture;
+			remoteInfo = memopic;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "gopicture-tvOS";
+			remoteInfo = "memopic-tvOS";
 		};
 		8445D28324B3949C00CCF16F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -48,35 +48,35 @@
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* gopictureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gopictureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* memopicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = memopicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* gopictureTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = gopictureTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* gopicture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gopicture.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = gopicture/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = gopicture/AppDelegate.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* memopicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = memopicTests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* memopic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memopic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = memopic/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = memopic/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = gopicture/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = gopicture/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = gopicture/main.m; sourceTree = "<group>"; };
-		2749F765CA449DFC550247DD /* libPods-gopicture.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-gopicture.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E47B1E0B4A5D006451C7 /* gopicture-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gopicture-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* gopicture-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "gopicture-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2DA25DB5487354D7EBDB554D /* Pods-gopicture-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gopicture-tvOS.release.xcconfig"; path = "Target Support Files/Pods-gopicture-tvOS/Pods-gopicture-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = memopic/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = memopic/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = memopic/main.m; sourceTree = "<group>"; };
+		2749F765CA449DFC550247DD /* libPods-memopic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-memopic.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E47B1E0B4A5D006451C7 /* memopic-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "memopic-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* memopic-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "memopic-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DA25DB5487354D7EBDB554D /* Pods-memopic-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memopic-tvOS.release.xcconfig"; path = "Target Support Files/Pods-memopic-tvOS/Pods-memopic-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		3814CB67BA4143D4B801B0CE /* libRNPhotoView.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNPhotoView.a; sourceTree = "<group>"; };
 		40129BEDD3024C86989DA0EB /* RNPhotoView.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNPhotoView.xcodeproj; path = "../node_modules/react-native-photo-view/ios/RNPhotoView.xcodeproj"; sourceTree = "<group>"; };
-		61D12CF8D37078EB02A8689D /* Pods-gopicture-gopictureTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gopicture-gopictureTests.release.xcconfig"; path = "Target Support Files/Pods-gopicture-gopictureTests/Pods-gopicture-gopictureTests.release.xcconfig"; sourceTree = "<group>"; };
-		74CDC0F52CE9212648CD4134 /* Pods-gopicture.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gopicture.release.xcconfig"; path = "Target Support Files/Pods-gopicture/Pods-gopicture.release.xcconfig"; sourceTree = "<group>"; };
-		8CC15B42810FE21648CE6CD7 /* libPods-gopicture-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-gopicture-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A229773BD75C4AC04BDA00F4 /* Pods-gopicture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gopicture.debug.xcconfig"; path = "Target Support Files/Pods-gopicture/Pods-gopicture.debug.xcconfig"; sourceTree = "<group>"; };
-		B78CEA7D6248F40B6B8B1CC9 /* Pods-gopicture-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gopicture-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-gopicture-tvOS/Pods-gopicture-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		BB9A703086AA39385F9C25C6 /* Pods-gopicture-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gopicture-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-gopicture-tvOSTests/Pods-gopicture-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		BE7251F4F23D90065B080797 /* libPods-gopicture-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-gopicture-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E0FD6384AEA23CABF0EB40F9 /* Pods-gopicture-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gopicture-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-gopicture-tvOSTests/Pods-gopicture-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		E42C1A3DEA9473E7835C5AB5 /* libPods-gopicture-gopictureTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-gopicture-gopictureTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E52EC983F4F8BBFF770006BE /* Pods-gopicture-gopictureTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gopicture-gopictureTests.debug.xcconfig"; path = "Target Support Files/Pods-gopicture-gopictureTests/Pods-gopicture-gopictureTests.debug.xcconfig"; sourceTree = "<group>"; };
+		61D12CF8D37078EB02A8689D /* Pods-memopic-memopicTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memopic-memopicTests.release.xcconfig"; path = "Target Support Files/Pods-memopic-memopicTests/Pods-memopic-memopicTests.release.xcconfig"; sourceTree = "<group>"; };
+		74CDC0F52CE9212648CD4134 /* Pods-memopic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memopic.release.xcconfig"; path = "Target Support Files/Pods-memopic/Pods-memopic.release.xcconfig"; sourceTree = "<group>"; };
+		8CC15B42810FE21648CE6CD7 /* libPods-memopic-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-memopic-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A229773BD75C4AC04BDA00F4 /* Pods-memopic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memopic.debug.xcconfig"; path = "Target Support Files/Pods-memopic/Pods-memopic.debug.xcconfig"; sourceTree = "<group>"; };
+		B78CEA7D6248F40B6B8B1CC9 /* Pods-memopic-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memopic-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-memopic-tvOS/Pods-memopic-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		BB9A703086AA39385F9C25C6 /* Pods-memopic-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memopic-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-memopic-tvOSTests/Pods-memopic-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BE7251F4F23D90065B080797 /* libPods-memopic-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-memopic-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0FD6384AEA23CABF0EB40F9 /* Pods-memopic-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memopic-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-memopic-tvOSTests/Pods-memopic-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		E42C1A3DEA9473E7835C5AB5 /* libPods-memopic-memopicTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-memopic-memopicTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E52EC983F4F8BBFF770006BE /* Pods-memopic-memopicTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memopic-memopicTests.debug.xcconfig"; path = "Target Support Files/Pods-memopic-memopicTests/Pods-memopic-memopicTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		FA3DFBEF24CEFF0E00EF98E6 /* gopicture.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = gopicture.entitlements; path = gopicture/gopicture.entitlements; sourceTree = "<group>"; };
+		FA3DFBEF24CEFF0E00EF98E6 /* memopic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = memopic.entitlements; path = memopic/memopic.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC3D7210CB3AC3DBB6761576 /* libPods-gopicture-gopictureTests.a in Frameworks */,
+				CC3D7210CB3AC3DBB6761576 /* libPods-memopic-memopicTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA0E2EB21A78E23071C8F70E /* libPods-gopicture.a in Frameworks */,
+				EA0E2EB21A78E23071C8F70E /* libPods-memopic.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,7 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46EBFEB15FB5A93E0DA2D071 /* libPods-gopicture-tvOS.a in Frameworks */,
+				46EBFEB15FB5A93E0DA2D071 /* libPods-memopic-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,20 +108,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFE61E26DDDC87A3B3995D5E /* libPods-gopicture-tvOSTests.a in Frameworks */,
+				BFE61E26DDDC87A3B3995D5E /* libPods-memopic-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* gopictureTests */ = {
+		00E356EF1AD99517003FC87E /* memopicTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* gopictureTests.m */,
+				00E356F21AD99517003FC87E /* memopicTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = gopictureTests;
+			path = memopicTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -132,10 +132,10 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* gopicture */ = {
+		13B07FAE1A68108700A75B9A /* memopic */ = {
 			isa = PBXGroup;
 			children = (
-				FA3DFBEF24CEFF0E00EF98E6 /* gopicture.entitlements */,
+				FA3DFBEF24CEFF0E00EF98E6 /* memopic.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -144,7 +144,7 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = gopicture;
+			name = memopic;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -152,10 +152,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				2749F765CA449DFC550247DD /* libPods-gopicture.a */,
-				E42C1A3DEA9473E7835C5AB5 /* libPods-gopicture-gopictureTests.a */,
-				8CC15B42810FE21648CE6CD7 /* libPods-gopicture-tvOS.a */,
-				BE7251F4F23D90065B080797 /* libPods-gopicture-tvOSTests.a */,
+				2749F765CA449DFC550247DD /* libPods-memopic.a */,
+				E42C1A3DEA9473E7835C5AB5 /* libPods-memopic-memopicTests.a */,
+				8CC15B42810FE21648CE6CD7 /* libPods-memopic-tvOS.a */,
+				BE7251F4F23D90065B080797 /* libPods-memopic-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -163,14 +163,14 @@
 		2FBF1ABCF3055F3ED8114691 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A229773BD75C4AC04BDA00F4 /* Pods-gopicture.debug.xcconfig */,
-				74CDC0F52CE9212648CD4134 /* Pods-gopicture.release.xcconfig */,
-				E52EC983F4F8BBFF770006BE /* Pods-gopicture-gopictureTests.debug.xcconfig */,
-				61D12CF8D37078EB02A8689D /* Pods-gopicture-gopictureTests.release.xcconfig */,
-				B78CEA7D6248F40B6B8B1CC9 /* Pods-gopicture-tvOS.debug.xcconfig */,
-				2DA25DB5487354D7EBDB554D /* Pods-gopicture-tvOS.release.xcconfig */,
-				BB9A703086AA39385F9C25C6 /* Pods-gopicture-tvOSTests.debug.xcconfig */,
-				E0FD6384AEA23CABF0EB40F9 /* Pods-gopicture-tvOSTests.release.xcconfig */,
+				A229773BD75C4AC04BDA00F4 /* Pods-memopic.debug.xcconfig */,
+				74CDC0F52CE9212648CD4134 /* Pods-memopic.release.xcconfig */,
+				E52EC983F4F8BBFF770006BE /* Pods-memopic-memopicTests.debug.xcconfig */,
+				61D12CF8D37078EB02A8689D /* Pods-memopic-memopicTests.release.xcconfig */,
+				B78CEA7D6248F40B6B8B1CC9 /* Pods-memopic-tvOS.debug.xcconfig */,
+				2DA25DB5487354D7EBDB554D /* Pods-memopic-tvOS.release.xcconfig */,
+				BB9A703086AA39385F9C25C6 /* Pods-memopic-tvOSTests.debug.xcconfig */,
+				E0FD6384AEA23CABF0EB40F9 /* Pods-memopic-tvOSTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -186,9 +186,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* gopicture */,
+				13B07FAE1A68108700A75B9A /* memopic */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* gopictureTests */,
+				00E356EF1AD99517003FC87E /* memopicTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				2FBF1ABCF3055F3ED8114691 /* Pods */,
@@ -202,10 +202,10 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* gopicture.app */,
-				00E356EE1AD99517003FC87E /* gopictureTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* gopicture-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* gopicture-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* memopic.app */,
+				00E356EE1AD99517003FC87E /* memopicTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* memopic-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* memopic-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -229,9 +229,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* gopictureTests */ = {
+		00E356ED1AD99517003FC87E /* memopicTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "gopictureTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "memopicTests" */;
 			buildPhases = (
 				B1DBF158563359B93E51408E /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -244,14 +244,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = gopictureTests;
-			productName = gopictureTests;
-			productReference = 00E356EE1AD99517003FC87E /* gopictureTests.xctest */;
+			name = memopicTests;
+			productName = memopicTests;
+			productReference = 00E356EE1AD99517003FC87E /* memopicTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* gopicture */ = {
+		13B07F861A680F5B00A75B9A /* memopic */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "gopicture" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "memopic" */;
 			buildPhases = (
 				783B9C3B354CC9AF9C7787FF /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -265,14 +265,14 @@
 			);
 			dependencies = (
 			);
-			name = gopicture;
-			productName = gopicture;
-			productReference = 13B07F961A680F5B00A75B9A /* gopicture.app */;
+			name = memopic;
+			productName = memopic;
+			productReference = 13B07F961A680F5B00A75B9A /* memopic.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* gopicture-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* memopic-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "gopicture-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "memopic-tvOS" */;
 			buildPhases = (
 				64577543A4F1E5015F4FEE10 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
@@ -285,14 +285,14 @@
 			);
 			dependencies = (
 			);
-			name = "gopicture-tvOS";
-			productName = "gopicture-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* gopicture-tvOS.app */;
+			name = "memopic-tvOS";
+			productName = "memopic-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* memopic-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* gopicture-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* memopic-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "gopicture-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "memopic-tvOSTests" */;
 			buildPhases = (
 				22DBE2CA08FDEF095D6307E6 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
@@ -304,9 +304,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "gopicture-tvOSTests";
-			productName = "gopicture-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* gopicture-tvOSTests.xctest */;
+			name = "memopic-tvOSTests";
+			productName = "memopic-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* memopic-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -335,7 +335,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "gopicture" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "memopic" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -354,10 +354,10 @@
 			);
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* gopicture */,
-				00E356ED1AD99517003FC87E /* gopictureTests */,
-				2D02E47A1E0B4A5D006451C7 /* gopicture-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* gopicture-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* memopic */,
+				00E356ED1AD99517003FC87E /* memopicTests */,
+				2D02E47A1E0B4A5D006451C7 /* memopic-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* memopic-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -436,7 +436,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-gopicture-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-memopic-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -463,7 +463,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-gopicture-gopictureTests/Pods-gopicture-gopictureTests-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-memopic-memopicTests/Pods-memopic-memopicTests-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/RNImageCropPicker/QBImagePicker.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
@@ -506,7 +506,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-gopicture-gopictureTests/Pods-gopicture-gopictureTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-memopic-memopicTests/Pods-memopic-memopicTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		64577543A4F1E5015F4FEE10 /* [CP] Check Pods Manifest.lock */ = {
@@ -524,7 +524,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-gopicture-tvOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-memopic-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -546,7 +546,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-gopicture-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-memopic-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -559,7 +559,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-gopicture/Pods-gopicture-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-memopic/Pods-memopic-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/RNImageCropPicker/QBImagePicker.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
@@ -602,7 +602,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-gopicture/Pods-gopicture-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-memopic/Pods-memopic-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B1DBF158563359B93E51408E /* [CP] Check Pods Manifest.lock */ = {
@@ -620,7 +620,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-gopicture-gopictureTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-memopic-memopicTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -672,7 +672,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* gopictureTests.m in Sources */,
+				00E356F31AD99517003FC87E /* memopicTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,7 +698,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* gopictureTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* memopicTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,12 +707,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* gopicture */;
+			target = 13B07F861A680F5B00A75B9A /* memopic */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* gopicture-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* memopic-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -724,7 +724,7 @@
 				13B07FB21A68108700A75B9A /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = gopicture;
+			path = memopic;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -732,7 +732,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E52EC983F4F8BBFF770006BE /* Pods-gopicture-gopictureTests.debug.xcconfig */;
+			baseConfigurationReference = E52EC983F4F8BBFF770006BE /* Pods-memopic-memopicTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -743,7 +743,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
 				);
-				INFOPLIST_FILE = gopictureTests/Info.plist;
+				INFOPLIST_FILE = memopicTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -757,13 +757,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gopicture.app/gopicture";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/memopic.app/memopic";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 61D12CF8D37078EB02A8689D /* Pods-gopicture-gopictureTests.release.xcconfig */;
+			baseConfigurationReference = 61D12CF8D37078EB02A8689D /* Pods-memopic-memopicTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -771,7 +771,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
 				);
-				INFOPLIST_FILE = gopictureTests/Info.plist;
+				INFOPLIST_FILE = memopicTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -785,17 +785,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gopicture.app/gopicture";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/memopic.app/memopic";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A229773BD75C4AC04BDA00F4 /* Pods-gopicture.debug.xcconfig */;
+			baseConfigurationReference = A229773BD75C4AC04BDA00F4 /* Pods-memopic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = gopicture/gopicture.entitlements;
+				CODE_SIGN_ENTITLEMENTS = memopic/memopic.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -806,7 +806,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
 				);
-				INFOPLIST_FILE = gopicture/Info.plist;
+				INFOPLIST_FILE = memopic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -814,7 +814,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = gopicture;
+				PRODUCT_NAME = memopic;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -823,17 +823,17 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 74CDC0F52CE9212648CD4134 /* Pods-gopicture.release.xcconfig */;
+			baseConfigurationReference = 74CDC0F52CE9212648CD4134 /* Pods-memopic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = gopicture/gopicture.entitlements;
+				CODE_SIGN_ENTITLEMENTS = memopic/memopic.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
 				);
-				INFOPLIST_FILE = gopicture/Info.plist;
+				INFOPLIST_FILE = memopic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -841,7 +841,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = gopicture;
+				PRODUCT_NAME = memopic;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -849,7 +849,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B78CEA7D6248F40B6B8B1CC9 /* Pods-gopicture-tvOS.debug.xcconfig */;
+			baseConfigurationReference = B78CEA7D6248F40B6B8B1CC9 /* Pods-memopic-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -864,7 +864,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
 				);
-				INFOPLIST_FILE = "gopicture-tvOS/Info.plist";
+				INFOPLIST_FILE = "memopic-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -875,7 +875,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.gopicture-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.memopic-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -885,7 +885,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2DA25DB5487354D7EBDB554D /* Pods-gopicture-tvOS.release.xcconfig */;
+			baseConfigurationReference = 2DA25DB5487354D7EBDB554D /* Pods-memopic-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -900,7 +900,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
 				);
-				INFOPLIST_FILE = "gopicture-tvOS/Info.plist";
+				INFOPLIST_FILE = "memopic-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -911,7 +911,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.gopicture-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.memopic-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -921,7 +921,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB9A703086AA39385F9C25C6 /* Pods-gopicture-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = BB9A703086AA39385F9C25C6 /* Pods-memopic-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -935,7 +935,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
 				);
-				INFOPLIST_FILE = "gopicture-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "memopic-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -946,17 +946,17 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.gopicture-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.memopic-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gopicture-tvOS.app/gopicture-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/memopic-tvOS.app/memopic-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0FD6384AEA23CABF0EB40F9 /* Pods-gopicture-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = E0FD6384AEA23CABF0EB40F9 /* Pods-memopic-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -970,7 +970,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
 				);
-				INFOPLIST_FILE = "gopicture-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "memopic-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -981,10 +981,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.gopicture-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.memopic-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gopicture-tvOS.app/gopicture-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/memopic-tvOS.app/memopic-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -1105,7 +1105,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "gopictureTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "memopicTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -1114,7 +1114,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "gopicture" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "memopic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -1123,7 +1123,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "gopicture-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "memopic-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -1132,7 +1132,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "gopicture-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "memopic-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -1141,7 +1141,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "gopicture" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "memopic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

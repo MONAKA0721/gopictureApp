@@ -44,8 +44,8 @@ def flipper_post_install(installer)
   end
 end
 
-target 'gopicture' do
-  # Pods for gopicture
+target 'memopic' do
+  # Pods for memopic
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -78,7 +78,7 @@ target 'gopicture' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
 
-  target 'gopictureTests' do
+  target 'memopicTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -95,10 +95,10 @@ target 'gopicture' do
   end
 end
 
-target 'gopicture-tvOS' do
-  # Pods for gopicture-tvOS
+target 'memopic-tvOS' do
+  # Pods for memopic-tvOS
 
-  target 'gopicture-tvOSTests' do
+  target 'memopic-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
