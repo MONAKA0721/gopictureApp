@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { NativeModules } from 'react-native';
+import { Button, NativeModules, Share } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -97,6 +97,26 @@ function reducer(prevState, action){
         ...prevState,
         isUsedEmail: true,
       }
+  }
+}
+
+async function onShare(album_hash){
+  try {
+    const result = await Share.share({
+      message:
+        WEBAPP_URL + 'albums' + '/' + album_hash
+    });
+    if (result.action === Share.sharedAction) {
+      if (result.activityType) {
+        // shared with activity type of result.activityType
+      } else {
+        // shared
+      }
+    } else if (result.action === Share.dismissedAction) {
+      // dismissed
+    }
+  } catch (error) {
+    alert(error.message);
   }
 }
 
@@ -297,7 +317,15 @@ export default function App() {
             <Stack.Screen
               name="Show"
               component={ShowScreen} 
-              options={({ route }) => ({ title: route.params.name })}
+              options={({ route }) => ({ 
+                title: route.params.name,
+                headerRight: () => (
+                  <Button
+                    onPress={ () => onShare(route.params.album_hash) }
+                    title="共有"
+                  />
+                ),
+              })}
             />
             <Stack.Screen
               name="Picture"
