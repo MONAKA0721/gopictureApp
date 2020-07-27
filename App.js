@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, NativeModules, Share } from 'react-native';
+import { Button, NativeModules, Share, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -14,6 +14,15 @@ import SplashScreen from './src/screens/Splash';
 import { WEBAPP_URL } from './config';
 
 const Stack = createStackNavigator();
+
+const linking = {
+  prefixes: ['memopic://'],
+  config: {
+    screens: {
+      Show: 'albums/:album_hash',
+    },
+  },
+};
 
 function reducer(prevState, action){
   switch (action.type) {
@@ -341,7 +350,7 @@ export default function App() {
 
   return (
     <AuthContext.Provider value={authContext}>
-      <NavigationContainer>
+      <NavigationContainer linking={linking}>
         <MyStack />
       </NavigationContainer>
     </AuthContext.Provider>
