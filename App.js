@@ -16,7 +16,7 @@ import { WEBAPP_URL } from './config';
 const Stack = createStackNavigator();
 
 const linking = {
-  prefixes: ['memopic://'],
+  prefixes: ['https://memopic-stg.herokuapp.com', 'memopic://'],
   config: {
     screens: {
       Show: 'albums/:album_hash',
