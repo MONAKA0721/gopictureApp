@@ -20,6 +20,18 @@
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
+        <intent-filter>
+          <!-- This is just configuration -->
+          <action android:name="android.intent.action.VIEW" />
+          <category android:name="android.intent.category.DEFAULT" />
+          <category android:name="android.intent.category.BROWSABLE" />
+
+          <!-- This is the important stuff. Link to Android docs below -->
+          <data android:scheme="https"
+                android:host="memopic-stg.herokuapp.com"
+                android:pathPrefix="/albums" />
+
+        </intent-filter>
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
     </application>
