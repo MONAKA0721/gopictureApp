@@ -41,7 +41,8 @@ export default function ShowScreen({ route, navigation }){
       }
     })
     .then((jsonData) => {
-      setPictures(jsonData);
+      navigation.setOptions({ title: jsonData['album_name'] });
+      setPictures(jsonData['pictures']);
     })
     .catch((error) => console.error(error));
   }
