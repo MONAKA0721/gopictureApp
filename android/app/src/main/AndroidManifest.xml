@@ -28,7 +28,7 @@
 
           <!-- This is the important stuff. Link to Android docs below -->
           <data android:scheme="https"
-                android:host="memopic-stg.herokuapp.com"
+                android:host="memopic.net"
                 android:pathPrefix="/albums" />
 
         </intent-filter>

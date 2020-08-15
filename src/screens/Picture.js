@@ -109,7 +109,6 @@ export default function PictureScreen({ route }){
                 ) : (
                   <LikeButton picture_id={picture.picture_id} index={index} />
                 )}
-                <DownloadButton />
               </View>
             </>
           ))
